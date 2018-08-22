@@ -10,14 +10,16 @@ class Content extends Component{
         super();
 
         this.state = {
+           selectedOption:{
+             nameLastname:"",
+             payConcept:"",
+             dni:"",
+             code:"",
+             receiptPayment:"",
+             initDate:"",
+             endDate:""
+           },
             lista:null,
-            nombre_apellido:"",
-            concepto:"",
-            dni:"",
-            codigo:"",
-            recibo:"",
-            dates:"",
-            dates2:"",
             mensaje:"",
             estado: false,
             operacion:'',
@@ -177,7 +179,24 @@ class Content extends Component{
             this.handleSearchClick();
         }
     };
+
+/* MAGIC */
+handleChangeMagico = (values,n) => {
+  //  console.log(this.state.selectedOption[n])
+   this.setState(prevState=>{
+     let selectedOption = prevState.selectedOption;
+     selectedOption[n]=values;
+     return {selectedOption:selectedOption}
+   })
+   console.log(this.state.selectedOption);
+  }
+
+
+
+
     render(){
+      const { selectedOption } = this.state;
+
         return(
             <div className="content">
                 <div className="buscar">
@@ -185,45 +204,45 @@ class Content extends Component{
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Nombre o Apellido</span>
                         </div>
-                        <input id="busca" type="text" className="form-control" value={this.state.nombre_apellido} onChange={this.handleInputName} placeholder="nombre o apellido" aria-label="Username" aria-describedby="basic-addon1"
+                        <input id="busca" type="text" className="form-control"name="nameLastname"  onChange={(values)=>this.handleChangeMagico(values.target.value,"nameLastname")} placeholder="nombre o apellido" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Concepto de Pago</span>
                         </div>
-                        <input id="concepto" type="text" className="form-control" value={this.state.concepto} onChange={this.handleInputConcepto} placeholder="ejem:123,123,123" aria-label="Username" aria-describedby="basic-addon1"
+                        <input id="concepto" type="text" className="form-control" name="payConcept"  onChange={(values)=>this.handleChangeMagico(values.target.value,"payConcept")}placeholder="ejem:123,123,123" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">DNI</span>
                         </div>
-                        <input id="dni" type="text" className="form-control" value={this.state.dni} onChange={this.handleInputDni} placeholder="DNI" aria-label="Username" aria-describedby="basic-addon1"
+                        <input id="dni" type="text" className="form-control" name="dni"  onChange={(values)=>this.handleChangeMagico(values.target.value,"dni")} placeholder="DNI" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Codigo</span>
                         </div>
-                        <input id="codigo" type="text" className="form-control" value={this.state.codigo} onChange={this.handleInputCodigo} placeholder="codigo" aria-label="Username" aria-describedby="basic-addon1"
+                        <input id="codigo" type="text" className="form-control" name="code"  onChange={(values)=>this.handleChangeMagico(values.target.value,"code")} placeholder="codigo" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Desde:</span>
                         </div>
-                        <input type="date" className="form-control"  onChange={this.handleChange} aria-label="Username" aria-describedby="basic-addon1"
+                        <input type="date" className="form-control"  name="initDate" value={selectedOption.initDate}   onChange={(values)=>this.handleChangeMagico(values.target.value,"initDate")} aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                         <span className="input-group-text" id="basic-addon1">Hasta</span>
-                        <input type="date" className="form-control"  onChange={this.handleChange2} aria-label="Username" aria-describedby="basic-addon1"
+                        <input type="date" className="form-control" name="endDate" value={selectedOption.endDate}   onChange={(values)=>this.handleChangeMagico(values.target.value,"endDate")} aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Nro de Recibo</span>
                         </div>
-                        <input id="recibo" type="text" className="form-control" value={this.state.recibo} onChange={this.handleInputRecibo} placeholder="ejem:cod1,cod2,..." aria-label="Username" aria-describedby="basic-addon1"
+                        <input id="recibo" type="text" className="form-control" name="receiptPayment"  onChange={(values)=>this.handleChangeMagico(values.target.value,"receiptPayment")} placeholder="ejem:cod1,cod2,..." aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
                     <div className="Botones">
