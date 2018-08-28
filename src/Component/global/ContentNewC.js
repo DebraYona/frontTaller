@@ -189,11 +189,13 @@ class Content extends Component{
                         </div>
 
                     </div>
+                      <div className="input-group mb-3 col-xs-12">
                     <div className="Botones">
                         <div className="Buton-contenedor">
                             <button id="Buscar" onClick={this.handleSearchClick} className="btn btn-outline-success">Buscar</button>
                             <Link to="/" className="btn btn-outline-success">Regresar </Link>
                         </div>
+                    </div>
                     </div>
                 </div>
 

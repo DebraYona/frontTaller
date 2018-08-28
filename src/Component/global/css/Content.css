@@ -1,12 +1,29 @@
 body{
 	font-size: 16px;
 	text-align: center;
+
+    
+}
+
+.content .container{
+    width: 100% !important;
+    padding: 0;
+}
+.content{
+    padding-top: 150px;
+    margin-top: -10px;
+        background-image: url(../image/fondo1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 20px;
 }
 .buscar{
-	margin-left: 30%;
-	margin-top: 10px;
-	margin-right: 30%;
-	text-align: center
+
+	text-align: center;
+    background: rgba(51,51,51,0.7);
+    padding: 30px;
+    box-shadow: 5px 5px 10px black;
 }
 .calendar{
 	width: 400px;
@@ -31,17 +48,36 @@ body{
 }
 .Botones
 {
-	width: 5%;
-	position: absolute;
-	top:18%;
-	right:18%;
+    margin: auto;
+	margin-top: 20px;
+	text-align: center;
+
+}
+.input_nombre{
+    display: none;
+}
+.input_pago{
+     display: none !important; 
 }
 .Buton-contenedor{
 	position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+#busca{
+  border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#concepto{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px; 
 }
 .Buton-contenedor a{
-	margin-top: 20px;
+	margin-top: 0px;
 	width: 90px;
+    padding: 10px;
+    margin-left: 40px;
 }
 .Buton-contenedor button{
 	width: 90px;
@@ -70,4 +106,70 @@ body{
 @keyframes spin {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
+}
+/* iphone 4 */
+@media (max-width: 320px){
+.Buton-contenedor a{
+	margin-top: 0px;
+	width: 80px;
+    padding: 5px;
+    margin-left: 0px;
+}  
+    .boton_medio{
+        margin-left: 10px !important;
+        margin-right: 10px;
+    }
+.buscar{
+
+    padding: 5px;
+    padding-top: 30px;
+}
+}/*Fin 320*/
+@media (min-width: 321px) and (max-width:425px){
+.Buton-contenedor a{
+	margin-top: 0px;
+	width: 80px;
+    padding: 5px;
+    margin-left: 20px;
+} 
+.buscar{
+    padding-top: 30px;
+    padding: 5px;
+
+}
+}
+/* especial */ 
+@media (min-width: 560px) {
+.input_nombre{
+    display: block;
+}
+.input_pago{
+     display: block !important; 
+}
+#busca{
+  border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+#concepto{
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px; 
+}
+}/*Fin 560*/
+
+/* General */
+@media (min-width: 768px) {
+.content{
+
+}
+}/*Fin 768*/
+
+@media (min-width: 992px) {
+ .content{
+
+
+} 
+}/*Fin 992*/
+
+@media (min-width: 1200px) {
+  
 }
