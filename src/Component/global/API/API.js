@@ -1,4 +1,3 @@
 export default {
-    "url":"https://api-modulocontrol.herokuapp.com/"
+    "url":"https://modulocontrol.herokuapp.com/"
 }
-

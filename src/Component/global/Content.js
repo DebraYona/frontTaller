@@ -4,6 +4,8 @@ import URL from './API/API';
 import { Link } from "react-router-dom";
 import './css/Content.css';
 import './css/bootstrap.css';
+import axios from 'axios';
+
 
 class Content extends Component{
     constructor(){
@@ -11,13 +13,13 @@ class Content extends Component{
 
         this.state = {
            selectedOption:{
-             nameLastname:"",
-             payConcept:"",
+             nombre:"",
+             id_concepto:"",
              dni:"",
-             code:"",
-             receiptPayment:"",
-             initDate:"",
-             endDate:""
+             codigo:"",
+             voucher:"",
+             periodoI:"",
+             periodoF:""
            },
             lista:null,
             mensaje:"",
@@ -36,6 +38,7 @@ class Content extends Component{
         this.handleInputCodigo=this.handleInputCodigo.bind(this);
         this.handleSearchKey=this.handleSearchKey.bind((this));
         this.mostrarData=this.mostrarData.bind(this);
+        this.buscar=this.buscar.bind(this);
     }
     // leer del input Concepto
     handleInputConcepto(data){
@@ -124,8 +127,7 @@ class Content extends Component{
         //          url = url.concat('detallada/');
        let url = URL.url.concat('recaudaciones/detallada/');
       // console.log(url);
-       if(this.state.nombre_apellido === "" && this.state.concepto === ""&& this.state.recibo === "" &&
-           this.state.dates2 === "" && this.state.dates === "" && this.state.dni === ""){
+       if(this.state.selectedOption === ""){
            this.setState({
                mensaje:"Casilleros vacios",
                estado:true,
@@ -134,14 +136,7 @@ class Content extends Component{
                isLoading:false
            });
        }else{
-           let arra = {
-               "nombre": this.state.nombre_apellido,
-               "periodoI": this.state.dates,
-               "id_concepto": this.state.concepto,
-               "periodoF": this.state.dates2,
-               "voucher":this.state.recibo,
-               "dni":this.state.dni
-           };
+           let arra = this.state.selectedOption
            this.setState({
                isLoading:true,
                mensaje:"",
@@ -155,17 +150,19 @@ class Content extends Component{
                    'Content-Type': 'application/json',
                },
                body: JSON.stringify(arra, null, 2)
-
+              //body: (arra)
            })
-               .then((response) => {
-                   return response.json()
+               .then((response) =>{
+                  console.log(response)
+                  // return response.json()
                })
-               .then(responseJson => {
+               .then(resp => {
+
                    this.setState({
-                       lista: responseJson.data,
+                       lista: resp.data,
                        estado:true,
-                       operacion: (responseJson.data!==null && responseJson.data.length!==0),
-                       mensaje:(responseJson.data!==null && responseJson.data.length!==0)?(""):("Datos no encontrados"),
+                       operacion: (resp.data!==null && resp.data.length!==0),
+                       mensaje:(resp.data!==null && resp.data.length!==0)?(""):("Datos no encontrados"),
                        isLoading:false
                    });
                    //console.log( responseJson.data.length);
@@ -192,6 +189,36 @@ handleChangeMagico = (values,n) => {
   }
 
 
+  buscar =()=>{
+    let n =this.state.selectedOption
+    let url2= URL.url.concat('recaudaciones/detallada/');
+    axios({
+      url: url2,
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+      },
+      responseType:'json',
+      data:n
+
+    })
+    .then(response=> {
+      console.log(response);
+      console.log(response.data.data[0]);
+      this.setState({
+        lista:response.data.data,
+        estado:true,
+        operacion: (response.data!==null && response.data.length!==0),
+        mensaje:(response.data!==null && response.data.length!==0)?(""):("Datos no encontrados"),
+        isLoading:false
+      })
+      console.log(this.state.lista);
+    })
+
+  }
+
+
 
 
     render(){
@@ -206,18 +233,18 @@ handleChangeMagico = (values,n) => {
                         <div className="input-group-prepend input_nombre ">
                             <span className="input-group-text " id="basic-addon1">Nombre o Apellido</span>
                         </div>
-                        <input id="busca" type="text" className="form-control"name="nameLastname"  onChange={(values)=>this.handleChangeMagico(values.target.value,"nameLastname")} placeholder="nombre o apellido" aria-label="Username" aria-describedby="basic-addon1"
+                        <input id="busca" type="text" className="form-control"name="nombre"  onChange={(values)=>this.handleChangeMagico(values.target.value,"nombre")} placeholder="nombre o apellido" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
-                            </div>       
+                            </div>
                          <div className="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-6">
                         <div className="input-group-prepend input_pago">
                             <span className="input-group-text" id="basic-addon1">Concepto de Pago</span>
                         </div>
-                        <input id="concepto" type="text" className="form-control" name="payConcept"  onChange={(values)=>this.handleChangeMagico(values.target.value,"payConcept")}placeholder="ejem:123,123,123" aria-label="Username" aria-describedby="basic-addon1"
+                        <input id="concepto" type="text" className="form-control" name="id_concepto"  onChange={(values)=>this.handleChangeMagico(values.target.value,"id_concepto")}placeholder="ejem:123,123,123" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
                     </div>
-                   
+
                     <div className="input-group mb-3 col-xs-12 ">
                         <div className="input-group mb-3 col-xs-12 col-md-12 col-lg-6 ">
                         <div className="input-group-prepend">
@@ -230,24 +257,24 @@ handleChangeMagico = (values,n) => {
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Codigo</span>
                         </div>
-                        <input id="codigo" type="text" className="form-control" name="code"  onChange={(values)=>this.handleChangeMagico(values.target.value,"code")} placeholder="codigo" aria-label="Username" aria-describedby="basic-addon1"
+                        <input id="codigo" type="text" className="form-control" name="codigo"  onChange={(values)=>this.handleChangeMagico(values.target.value,"codigo")} placeholder="codigo" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
                     </div>
-                  
+
                     <div className="input-group mb-3 col-xs-12">
                         <div className="input-group mb-3 col-xs-12 col-md-12 col-lg-6">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Desde:</span>
                         </div>
-                        <input type="date" className="form-control"  name="initDate" value={selectedOption.initDate}   onChange={(values)=>this.handleChangeMagico(values.target.value,"initDate")} aria-label="Username" aria-describedby="basic-addon1"
+                        <input type="date" className="form-control"  name="periodoI" value={selectedOption.initDate}   onChange={(values)=>this.handleChangeMagico(values.target.value,"periodoI")} aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                                    </div>
                          <div className="input-group mb-3 col-xs-12 col-md-12 col-lg-6">
                         <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">Hasta</span>
                     </div>
-                        <input type="date" className="form-control" name="endDate" value={selectedOption.endDate}   onChange={(values)=>this.handleChangeMagico(values.target.value,"endDate")} aria-label="Username" aria-describedby="basic-addon1"
+                        <input type="date" className="form-control" name="periodoF" value={selectedOption.endDate}   onChange={(values)=>this.handleChangeMagico(values.target.value,"periodoF")} aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                         </div>
                     </div>
@@ -256,20 +283,20 @@ handleChangeMagico = (values,n) => {
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Nro de Recibo</span>
                         </div>
-                        <input id="recibo" type="text" className="form-control" name="receiptPayment"  onChange={(values)=>this.handleChangeMagico(values.target.value,"receiptPayment")} placeholder="ejem:cod1,cod2,..." aria-label="Username" aria-describedby="basic-addon1"
+                        <input id="recibo" type="text" className="form-control" name="voucher"  onChange={(values)=>this.handleChangeMagico(values.target.value,"voucher")} placeholder="ejem:cod1,cod2,..." aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
                     <div className="input-group mb-3 col-xs-12  text-center">
                         <div className="Botones">
                         <div className="Buton-contenedor">
-                            <button id="Buscar" onClick={this.handleSearchClick} className="btn btn-outline-success">Buscar </button>
+                            <button id="Buscar" onClick={this.buscar} className="btn btn-outline-success">Buscar </button>
                             <Link to="/nueva" className="btn btn-outline-success boton_medio">Agregar</Link>
                             <a className="btn btn-outline-success" href="https://siga-fisi.herokuapp.com/dashboard" >Regresar</a>
                         </div>
                         </div>
                     </div>
                     </div>
-                    
+
                 </div>
                     </div>
                 <div className={(this.state.isLoading)?("isLoading"):("listar")}>
