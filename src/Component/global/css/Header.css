@@ -1,12 +1,30 @@
 
-.header {
-    background-color: #222;
+.header1 {
+    background: rgba(0,0,0,0.8);
     text-align: center;
-    height: 20%;
-    padding: 10px;
+    height: 120px;
+    padding: 30px 0px 10px 0px;
     color: white;
+    box-shadow: 0px 0px 10px black;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+}.header2 {
+    background: rgba(0,0,0,0.8);
+    text-align: center;
+    height: 120px;
+    padding: 20px 0px 10px 0px;
+    color: white;
+    box-shadow: 0px 0px 10px black;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 100%;
 }
-
+.titulo{
+    font-size: 1.7em;
+}
 .App-title {
     font-size: 1.5em;
 }
@@ -14,3 +32,28 @@
 .App-intro {
     font-size: large;
 }
+/* iphone 4 */
+@media (max-width: 320px){
+
+}/*Fin 320*/
+
+/* especial */ 
+@media (min-width: 560px) {
+.header {
+    height: 120px;
+        padding: 20px 0px 10px 0px;
+}
+}/*Fin 560*/
+
+/* General */
+@media (min-width: 768px) {
+
+}/*Fin 768*/
+
+@media (min-width: 992px) {
+  
+}/*Fin 992*/
+
+@media (min-width: 1200px) {
+  
+}/*Fin 1200*/

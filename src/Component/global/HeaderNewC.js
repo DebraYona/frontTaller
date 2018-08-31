@@ -6,7 +6,7 @@ import './css/Header.css';
 class Header extends Component {
     render() {
         return (
-            <div className="header">
+            <div className="header2">
                 <header className="Logo">
                     <h2 className="titulo">Módulo Control de Recibos </h2>
                     <h3 className="titulo">Nueva Recaudación </h3>

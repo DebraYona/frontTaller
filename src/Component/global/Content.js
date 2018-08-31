@@ -199,61 +199,79 @@ handleChangeMagico = (values,n) => {
 
         return(
             <div className="content">
+                <div className="container">
                 <div className="buscar">
-                    <div className="input-group mb-3">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text" id="basic-addon1">Nombre o Apellido</span>
+                    <div className="input-group mb-3 col-xs-12">
+                          <div className="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <div className="input-group-prepend input_nombre ">
+                            <span className="input-group-text " id="basic-addon1">Nombre o Apellido</span>
                         </div>
                         <input id="busca" type="text" className="form-control"name="nameLastname"  onChange={(values)=>this.handleChangeMagico(values.target.value,"nameLastname")} placeholder="nombre o apellido" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
-                    </div>
-                    <div className="input-group mb-3">
-                        <div className="input-group-prepend">
+                            </div>       
+                         <div className="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <div className="input-group-prepend input_pago">
                             <span className="input-group-text" id="basic-addon1">Concepto de Pago</span>
                         </div>
                         <input id="concepto" type="text" className="form-control" name="payConcept"  onChange={(values)=>this.handleChangeMagico(values.target.value,"payConcept")}placeholder="ejem:123,123,123" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
-                    <div className="input-group mb-3">
+                    </div>
+                   
+                    <div className="input-group mb-3 col-xs-12 ">
+                        <div className="input-group mb-3 col-xs-12 col-md-12 col-lg-6 ">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">DNI</span>
                         </div>
                         <input id="dni" type="text" className="form-control" name="dni"  onChange={(values)=>this.handleChangeMagico(values.target.value,"dni")} placeholder="DNI" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
-                    </div>
-                    <div className="input-group mb-3">
+                                   </div>
+                  <div className="input-group mb-3 col-xs-12 col-md-12 col-lg-6">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Codigo</span>
                         </div>
                         <input id="codigo" type="text" className="form-control" name="code"  onChange={(values)=>this.handleChangeMagico(values.target.value,"code")} placeholder="codigo" aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
-                    <div className="input-group mb-3">
+                    </div>
+                  
+                    <div className="input-group mb-3 col-xs-12">
+                        <div className="input-group mb-3 col-xs-12 col-md-12 col-lg-6">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Desde:</span>
                         </div>
                         <input type="date" className="form-control"  name="initDate" value={selectedOption.initDate}   onChange={(values)=>this.handleChangeMagico(values.target.value,"initDate")} aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
+                                   </div>
+                         <div className="input-group mb-3 col-xs-12 col-md-12 col-lg-6">
+                        <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">Hasta</span>
+                    </div>
                         <input type="date" className="form-control" name="endDate" value={selectedOption.endDate}   onChange={(values)=>this.handleChangeMagico(values.target.value,"endDate")} aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
+                        </div>
                     </div>
-                    <div className="input-group mb-3">
+                        <div className="input-group mb-3 col-xs-12 ">
+                    <div className="input-group mb-3 col-xs-12 col-md-12 col-lg-6">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1">Nro de Recibo</span>
                         </div>
                         <input id="recibo" type="text" className="form-control" name="receiptPayment"  onChange={(values)=>this.handleChangeMagico(values.target.value,"receiptPayment")} placeholder="ejem:cod1,cod2,..." aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
-                    <div className="Botones">
+                    <div className="input-group mb-3 col-xs-12  text-center">
+                        <div className="Botones">
                         <div className="Buton-contenedor">
                             <button id="Buscar" onClick={this.handleSearchClick} className="btn btn-outline-success">Buscar </button>
-                            <Link to="/nueva" className="btn btn-outline-success">Agregar</Link>
+                            <Link to="/nueva" className="btn btn-outline-success boton_medio">Agregar</Link>
                             <a className="btn btn-outline-success" href="https://siga-fisi.herokuapp.com/dashboard" >Regresar</a>
                         </div>
-
+                        </div>
                     </div>
+                    </div>
+                    
                 </div>
+                    </div>
                 <div className={(this.state.isLoading)?("isLoading"):("listar")}>
                     {this.mostrarData()}
                 </div>
