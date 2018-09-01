@@ -50,7 +50,7 @@ class Content extends Component{
         return contenedor;
     }
 
-
+/*
     handleSearchKey(e){
         if(e.key==="enter"){
             this.handleSearchClick();
@@ -107,12 +107,12 @@ class Content extends Component{
        }
 
     }
-    */
+
     handleKeyPress = (event) => {
         if(event.key === 'Enter'){
             this.handleSearchClick();
         }
-    };
+    };*/
 
 /* MAGIC */
 handleChangeMagico = (values,n) => {
