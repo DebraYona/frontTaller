@@ -31,7 +31,7 @@ class Content extends Component{
 
       //  this.handleSearchClick=this.handleSearchClick.bind(this);
 
-        this.handleSearchKey=this.handleSearchKey.bind((this));
+    //    this.handleSearchKey=this.handleSearchKey.bind((this));
         this.mostrarData=this.mostrarData.bind(this);
         this.buscar=this.buscar.bind(this);
     }
