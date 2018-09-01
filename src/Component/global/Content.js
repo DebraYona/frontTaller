@@ -28,25 +28,14 @@ class Content extends Component{
             isLoading:false
         };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleChange2 = this.handleChange2.bind(this);
-        this.handleSearchClick=this.handleSearchClick.bind(this);
-        this.handleInputName=this.handleInputName.bind(this);
-        this.handleInputConcepto=this.handleInputConcepto.bind(this);
-        this.handleInputRecibo=this.handleInputRecibo.bind(this);
-        this.handleInputDni=this.handleInputDni.bind(this);
-        this.handleInputCodigo=this.handleInputCodigo.bind(this);
+
+      //  this.handleSearchClick=this.handleSearchClick.bind(this);
+
         this.handleSearchKey=this.handleSearchKey.bind((this));
         this.mostrarData=this.mostrarData.bind(this);
         this.buscar=this.buscar.bind(this);
     }
-    // leer del input Concepto
-    handleInputConcepto(data){
-            this.setState({
-                concepto:data.target.value,
-                mensaje:""
-        });
-    }
+
     mostrarData(){
         let contenedor="";
         if(this.state.estado){
@@ -60,61 +49,8 @@ class Content extends Component{
         }
         return contenedor;
     }
-/*
-    //leer del input recibo
-    handleInputRecibo(data){
-        this.setState({
-            recibo: data.target.value,
-            mensaje:"",
-            operacion:"c"
-        });
-    }
-    //leer del input DNI
-    handleInputDni(data){
-        this.setState({
-            dni: data.target.value,
 
-        });
-          console.log(data.target.value);
-    }
-    //leer del input Codigo
-    handleInputCodigo(data){
-        this.setState({
-            codigo: data.target.value,
 
-        });
-        console.log(data.target.value);
-    }
-    // funcion del calendario en date se almacena la fecha seleccionada
-    handleChange(date) {
-        this.setState({
-            dates: date.target.value,
-            mensaje:"",
-            operacion:"c"
-        });
-        console.log(date.target.value);
-        console.log(this.state.dates);
-    }
-    handleChange2(date) {
-        this.setState({
-            dates2: date.target.value,
-            mensaje:"",
-            operacion:"c"
-        });
-      //  console.log(this.state.dates2);
-    }
-
-    // ingresar texto
-    handleInputName(e){
-        if(e.target.id==="busca"){
-            this.setState({
-                nombre_apellido: e.target.value,
-                mensaje:"",
-                operacion:"c"
-            });
-        }
-    }
-*/
     handleSearchKey(e){
         if(e.key==="enter"){
             this.handleSearchClick();
