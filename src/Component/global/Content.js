@@ -60,7 +60,7 @@ class Content extends Component{
         }
         return contenedor;
     }
-
+/*
     //leer del input recibo
     handleInputRecibo(data){
         this.setState({
@@ -114,14 +114,14 @@ class Content extends Component{
             });
         }
     }
-
+*/
     handleSearchKey(e){
         if(e.key==="enter"){
             this.handleSearchClick();
         }
     }
     //buscar
-   handleSearchClick(e) {
+  /* handleSearchClick(e) {
 
       //  let url = 'https://api-modulocontrol.herokuapp.com/recaudaciones/';
         //          url = url.concat('detallada/');
@@ -171,6 +171,7 @@ class Content extends Component{
        }
 
     }
+    */
     handleKeyPress = (event) => {
         if(event.key === 'Enter'){
             this.handleSearchClick();
