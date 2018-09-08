@@ -50,12 +50,13 @@ class Content extends Component{
         return contenedor;
     }
 
-/*
+
     handleSearchKey(e){
         if(e.key==="enter"){
-            this.handleSearchClick();
+            this.buscar();
         }
     }
+    /*
     //buscar
   /* handleSearchClick(e) {
 
@@ -107,12 +108,15 @@ class Content extends Component{
        }
 
     }
-
+*/
     handleKeyPress = (event) => {
         if(event.key === 'Enter'){
-            this.handleSearchClick();
+            this.buscar();
         }
-    };*/
+    }
+    handleSubmit =(even){
+      this.refs.form.reset()
+    }
 
 /* MAGIC */
 handleChangeMagico = (values,n) => {
@@ -165,6 +169,7 @@ handleChangeMagico = (values,n) => {
             <div className="content">
                 <div className="container">
                 <div className="buscar">
+                  <form onSubmit={this.handleSubmit} ref="form" >
                     <div className="input-group mb-3 col-xs-12">
                           <div className="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-6">
                         <div className="input-group-prepend input_nombre ">
@@ -231,6 +236,7 @@ handleChangeMagico = (values,n) => {
                             <a className="btn btn-outline-success" href="https://siga-fisi.herokuapp.com/dashboard" >Regresar</a>
                         </div>
                         </div>
+                      </form>
                     </div>
                     </div>
 

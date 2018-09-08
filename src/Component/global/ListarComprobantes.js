@@ -39,7 +39,7 @@ class ListarComponentes extends Component {
         if (lista !== null) {
             lista.map((item,key) => {
                 arreglo = arreglo.concat(new this.Obj(item.id_rec,item.observacion,item.id_ubicacion && item.id_ubicacion,item.validado,item.nombre,
-                    item.concepto,item.codigo,item.numero,item.importe,item.fecha));
+                    item.concepto,item.codigo,item.recibo,item.importe,item.fecha));
                 return null;
             });
             const listadoOrdenado = arreglo.sort(function (a, b) {
@@ -120,7 +120,7 @@ class ListarComponentes extends Component {
     }
 
     //crea un objeto para pasar al hijo
-    Obj(id_rec,obs,ubic,validado,nombre,concepto,codigo,numero,importe,fecha){
+    Obj(id_rec,obs,ubic,validado,nombre,concepto,codigo,recibo,importe,fecha){
         this.id_rec=id_rec;
         this.obs=obs;
         this.ubic=ubic;
@@ -128,7 +128,7 @@ class ListarComponentes extends Component {
         this.nombre=nombre;
         this.concepto=concepto;
         this.codigo=codigo;
-        this.numero=numero;
+        this.recibo=recibo;
         this.importe=importe;
         //console.log(convertDateFormat(fecha.substr(0,10)));
         if(fecha!==null){
@@ -293,7 +293,7 @@ class ListarComponentes extends Component {
                                 <td onClick={(e)=>this.eventoNombre(e)} title="click para ver detalles" className="detalles" id={(dynamicData.codigo==="0")?(dynamicData.nombre):(dynamicData.codigo)}>{dynamicData.nombre}</td>
                                 <td>{dynamicData.concepto}</td>
                                 <td>{dynamicData.codigo}</td>
-                                <td>{dynamicData.numero}</td>
+                                <td>{dynamicData.recibo}</td>
                                 <td>{dynamicData.importe}</td>
                                 <td>{dynamicData.fecha}</td>
                                 <td><Combo items={this.state.ubicDato} val={this.handleChangeUbic} ubic={dynamicData.ubic}
