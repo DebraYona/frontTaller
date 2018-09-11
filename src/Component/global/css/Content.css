@@ -1,175 +1,134 @@
-body{
-	font-size: 16px;
-	text-align: center;
-
-    
-}
-
-.content .container{
-    width: 100% !important;
-    padding: 0;
-}
 .content{
-    padding-top: 150px;
-    margin-top: -10px;
-        background-image: url(../image/fondo1.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding-bottom: 20px;
+    padding: 25px 20px ;
 }
-.buscar{
 
-	text-align: center;
-    background: rgba(51,51,51,0.7);
-    padding: 30px;
-    box-shadow: 5px 5px 10px black;
+.buscar form >.input-group{
+    width: 100%;
 }
-.calendar{
-	width: 400px;
-	margin-left: 15%;
-
+.buscar>.input-group{
+    width: 100%;
 }
-#periodo{
-	padding-bottom: 10px;
-	margin-right: 15px;
+.buscar form >.input-group>.input-group{
+ 
+} 
+.buscar form >.input-group>.input-group>.input-group{
+    margin: 10px 0px; 
 }
-.react-datepicker-wrapper{
-	width: 112px;
-	display: inline;
+input{
+       border-radius: 10px !important;
 }
-.calendario_1{
-	margin: 10px;
-	font-size: 14px;
+.cont_boton{
+    position: relative;
+    top: 30px;
+    right: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
-.calendario_2{
-	margin-left: 13px;
-	font-size: 14px;
-}
-.Botones
-{
+.contenedor_boton{
+    width: 280px;
     margin: auto;
-	margin-top: 20px;
-	text-align: center;
+    margin-top: -20px;
+}
+
+.btn{
+    margin: 10px 0px;
+    width: 120px ;
+    background: transparent;
+    color: #847592 !important;
+    border:1px solid #847592; 
+}
+
+.btn:hover{
+    color: white !important;
+}
+.btn-regresar{
+    margin-left: 30px !important;
+}
+.cont_boton{
 
 }
-.input_nombre{
+.botones1{
+    background: blue;
+    margin: auto;
+    width: 100px;
+}
+
+.buton_contenedor1{
+}
+
+
+.input-group-prepend{
     display: none;
 }
-.input_pago{
-     display: none !important; 
-}
-.Buton-contenedor{
-	position: relative;
-    display: flex;
-    flex-direction: row;
-}
-
-#busca{
-  border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-}
-#concepto{
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px; 
-}
-.Buton-contenedor a{
-	margin-top: 0px;
-	width: 90px;
-    padding: 10px;
-    margin-left: 40px;
-}
-.Buton-contenedor button{
-	width: 90px;
-}
-.isLoading {
-	border: 16px solid #f3f3f3;
-	border-radius: 50%;
-	border-top: 16px solid #3498db;
-	margin:2% auto;
-	padding: 3%;
-	width: 120px;
-	height: 120px;
-	-webkit-animation: spin 2s linear infinite; /* Safari */
-	animation: spin 2s linear infinite;
-}
-.listar{
-	margin: 3%;
-}
-
-/* Safari */
-@-webkit-keyframes spin {
-	0% { -webkit-transform: rotate(0deg); }
-	100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
+.boton_medio{
+    margin: 0px 20px;
 }
 /* iphone 4 */
 @media (max-width: 320px){
-.Buton-contenedor a{
-	margin-top: 0px;
-	width: 80px;
-    padding: 5px;
-    margin-left: 0px;
-}  
-    .boton_medio{
-        margin-left: 10px !important;
-        margin-right: 10px;
-    }
-.buscar{
-
-    padding: 5px;
-    padding-top: 30px;
+.boton_medio{
+    margin: 0px 10px;
 }
 }/*Fin 320*/
 @media (min-width: 321px) and (max-width:425px){
-.Buton-contenedor a{
-	margin-top: 0px;
-	width: 80px;
-    padding: 5px;
-    margin-left: 20px;
-} 
-.buscar{
-    padding-top: 30px;
-    padding: 5px;
-
+.boton_medio{
+    margin: 0px 10px;
 }
 }
 /* especial */ 
 @media (min-width: 560px) {
-.input_nombre{
-    display: block;
-}
-.input_pago{
-     display: block !important; 
-}
-#busca{
-  border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
-}
-#concepto{
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px; 
-}
+
 }/*Fin 560*/
 
 /* General */
 @media (min-width: 768px) {
-.content{
-
+.btn-regresar{
+    margin-left: 10px !important;
+}
+.btn{
+    margin: 20px 0px;
+    width: 120px ;
+}
+.buscar form >.input-group>.input-group>.input-group{
+    margin: 10px 0px; 
+}
+input{
+       border-radius: 0px !important;
+    border-bottom-right-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+}
+.input-group-prepend{
+    display: block;
+}
+ .cont_boton{ 
+    position: absolute;
+    top: -280px;
+    right: -80px;
+      width: 10px;
+} 
+.buscar form >.input-group{
+    width: 80%;
 }
 }/*Fin 768*/
-
+@media (min-width: 880px) {
+  .cont_boton{
+    top: -280px;
+    right: -100px;
+}   
+}
 @media (min-width: 992px) {
- .content{
-
-
-} 
+ .cont_boton{
+    top: -232px;
+    right: -80px;
+}
+.buscar form >.input-group{
+    width: 85%;
+}
 }/*Fin 992*/
 
 @media (min-width: 1200px) {
-  
+ .cont_boton{
+    top: -230px;
+    right: -110px;
+} 
 }
