@@ -110,7 +110,8 @@ class Content extends Component{
         }
     }
     handleSubmit =(even) =>{
-      this.refs.form.reset()
+      //this.refs.form.reset()
+      document.getElementById('formulario').reset()
     }
 
 /* MAGIC */
@@ -151,7 +152,7 @@ handleChangeMagico = (values,n) => {
       })
       console.log(this.state.lista);
     })
-
+    console.log("palilalala");
   }
 
 
@@ -164,8 +165,8 @@ handleChangeMagico = (values,n) => {
             <div className="content">
 
                 <div className="buscar">
-                    onSubmit={this.handleSubmit} ref="form"
-                  <form  >
+
+                  <form id="formulario" >
 
                     <div className="input-group mb-3 col-xs-12">
                           <div className="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-6">
@@ -225,10 +226,11 @@ handleChangeMagico = (values,n) => {
                         <input id="recibo" type="text" className="form-control" name="voucher"  onChange={(values)=>this.handleChangeMagico(values.target.value,"voucher")} placeholder="ejem:cod1,cod2,..." aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
+
                     <div className="cont_boton input-group mb-3 col-xs-12  text-center">
                         <div className="Botones">
                         <div className="Buton-contenedor">
-                            <button id="Buscar" onClick={this.buscar} className="btn btn-primary">Buscar </button>
+                            <button id="Buscar" onClick={this.buscar} onSubmit= {this.handleSubmit} className="btn btn-primary">Buscar </button>
                             <Link to="/nueva" className="btn btn-primary boton_medio">Agregar</Link>
                             <a className="btn btn-primary" href="https://siga-fisi.herokuapp.com/dashboard" >Regresar</a>
                         </div>
