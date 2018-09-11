@@ -36,6 +36,7 @@ class Content extends Component{
         this.handleSearchKey=this.handleSearchKey.bind((this));
         this.handleKeyPress = this.handleKeyPress.bind((this));
         this.mostrarData=this.mostrarData.bind(this);
+
     }
     // leer del input Concepto
     handleInputConcepto(data){
@@ -166,12 +167,16 @@ class Content extends Component{
             this.handleSearchClick();
         }
     };
+                    
+
     render(){
         return(
             <div className="content">
-                <div className="container">
-                    <div className="buscar">
-                        <div className="input-group mb-3">
+        
+                <div className="buscar">
+                        
+                    <div className="input-group mb-3 col-xs-12">
+                        <div className="input-group mb-3 col-xs-12 col-sm-6">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="basic-addon1">Nombre o Apellido</span>
                             </div>
@@ -180,24 +185,26 @@ class Content extends Component{
 
                         </div>
 
-                        <div className="input-group mb-3">
+                        <div className="input-group mb-3 col-xs-12 col-sm-6">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="basic-addon1">DNI o Codigo</span>
                             </div>
                             <input id="dni" type="text" className="form-control" value={this.state.dni} onChange={this.handleInputDni} placeholder="codigo" aria-label="Username" aria-describedby="basic-addon1"
                                    onKeyPress={this.handleKeyPress} />
                         </div>
-
                     </div>
-                      <div className="input-group mb-3 col-xs-12">
-                    <div className="Botones">
-                        <div className="Buton-contenedor">
-                            <button id="Buscar" onClick={this.handleSearchClick} className="btn btn-outline-success">Buscar</button>
-                            <Link to="/" className="btn btn-outline-success">Regresar </Link>
+                </div>
+                     <div className="contenedor_boton">
+                      <div className=" input-group mb-3 col-xs-12">
+                        <div className="Botones1">
+                        <div className="Buton-contenedor1">
+                            <button id="Buscar" onClick={this.handleSearchClick} className="btn btn btn-primary ">Buscar</button>
+                            <Link to="/" className="btn btn-primary btn-regresar">Regresar </Link>
+                        </div>
                         </div>
                     </div>
                     </div>
-                </div>
+       
 
                 <div className={(this.state.isLoading)?("isLoading"):("listar")}>
                     {this.mostrarData()}

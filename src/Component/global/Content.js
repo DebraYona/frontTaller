@@ -59,7 +59,6 @@ class Content extends Component{
     /*
     //buscar
   /* handleSearchClick(e) {
-
       //  let url = 'https://api-modulocontrol.herokuapp.com/recaudaciones/';
         //          url = url.concat('detallada/');
        let url = URL.url.concat('recaudaciones/detallada/');
@@ -80,7 +79,6 @@ class Content extends Component{
                operacion:"c"
            });
            fetch(url, {
-
                method: 'POST',
                headers: {
                    'Accept': 'application/json',
@@ -94,7 +92,6 @@ class Content extends Component{
                   // return response.json()
                })
                .then(resp => {
-
                    this.setState({
                        lista: resp.data,
                        estado:true,
@@ -104,9 +101,7 @@ class Content extends Component{
                    });
                    //console.log( responseJson.data.length);
                });
-
        }
-
     }
 */
     handleKeyPress = (event) => {
@@ -167,10 +162,10 @@ handleChangeMagico = (values,n) => {
 
         return(
             <div className="content">
-                <div className="container">
+
                 <div className="buscar">
-              //  onSubmit={this.handleSubmit} ref="form"
-                  <form >
+
+                  <form onSubmit={this.handleSubmit} ref="form" >
 
                     <div className="input-group mb-3 col-xs-12">
                           <div className="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-6">
@@ -230,19 +225,27 @@ handleChangeMagico = (values,n) => {
                         <input id="recibo" type="text" className="form-control" name="voucher"  onChange={(values)=>this.handleChangeMagico(values.target.value,"voucher")} placeholder="ejem:cod1,cod2,..." aria-label="Username" aria-describedby="basic-addon1"
                                onKeyPress={this.handleKeyPress}/>
                     </div>
-                    <div className="input-group mb-3 col-xs-12  text-center">
+                    <div className="cont_boton input-group mb-3 col-xs-12  text-center">
                         <div className="Botones">
                         <div className="Buton-contenedor">
-                            <button id="Buscar" onClick={this.buscar} className="btn btn-outline-success">Buscar </button>
-                            <Link to="/nueva" className="btn btn-outline-success boton_medio">Agregar</Link>
-                            <a className="btn btn-outline-success" href="https://siga-fisi.herokuapp.com/dashboard" >Regresar</a>
+                            <button id="Buscar" onClick={this.buscar} className="btn btn-primary">Buscar </button>
+                            <Link to="/nueva" className="btn btn-primary boton_medio">Agregar</Link>
+                            <a className="btn btn-primary" href="https://siga-fisi.herokuapp.com/dashboard" >Regresar</a>
                         </div>
                         </div>
+<<<<<<< HEAD
 
                     </div>
                     </div>
                     </form>
                 </div>
+=======
+
+                    </div>
+                    </div>
+</form>
+
+>>>>>>> 14098666a6f649758f93f1738253815f5d225b82
                     </div>
                 <div className={(this.state.isLoading)?("isLoading"):("listar")}>
                     {this.mostrarData()}

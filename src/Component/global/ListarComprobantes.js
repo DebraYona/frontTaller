@@ -272,7 +272,7 @@ class ListarComponentes extends Component {
 
             return (
                 <div className="table-scroll">
-                    <table className="tabla">
+                    <table className="table table-striped table-bordered table-hover">
                         <thead>
                         <tr className="tabla-cabecera">
                             <th>Nro</th>
