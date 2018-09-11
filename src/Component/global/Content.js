@@ -164,8 +164,8 @@ handleChangeMagico = (values,n) => {
             <div className="content">
 
                 <div className="buscar">
-
-                  <form onSubmit={this.handleSubmit} ref="form" >
+                    onSubmit={this.handleSubmit} ref="form"
+                  <form  >
 
                     <div className="input-group mb-3 col-xs-12">
                           <div className="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-6">
@@ -233,19 +233,11 @@ handleChangeMagico = (values,n) => {
                             <a className="btn btn-primary" href="https://siga-fisi.herokuapp.com/dashboard" >Regresar</a>
                         </div>
                         </div>
-<<<<<<< HEAD
-
-                    </div>
-                    </div>
-                    </form>
-                </div>
-=======
 
                     </div>
                     </div>
 </form>
 
->>>>>>> 14098666a6f649758f93f1738253815f5d225b82
                     </div>
                 <div className={(this.state.isLoading)?("isLoading"):("listar")}>
                     {this.mostrarData()}
