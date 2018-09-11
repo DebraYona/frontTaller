@@ -169,8 +169,8 @@ handleChangeMagico = (values,n) => {
             <div className="content">
                 <div className="container">
                 <div className="buscar">
-
-                  <form  onSubmit={this.handleSubmit} ref="form" >
+              //  onSubmit={this.handleSubmit} ref="form"
+                  <form >
 
                     <div className="input-group mb-3 col-xs-12">
                           <div className="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-6">
