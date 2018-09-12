@@ -110,8 +110,13 @@ class Content extends Component{
         }
     }
     handleSubmit =(even) =>{
-      //this.refs.form.reset()
-      document.getElementById('formulario').reset()
+      //document.getElementById('formulario').preventDefault();
+      even.preventDefault();
+
+      this.refs.formulario.reset()
+    // document.getElementById('formulario').reset()
+    console.log("DSAEW");
+      //even.preventDefault();
     }
 
 /* MAGIC */
@@ -148,7 +153,8 @@ handleChangeMagico = (values,n) => {
         estado:true,
         operacion: (response.data!==null && response.data.length!==0),
         mensaje:(response.data!==null && response.data.length!==0)?(""):("Datos no encontrados"),
-        isLoading:false
+        isLoading      
+:false
       })
       console.log(this.state.lista);
     })
@@ -166,8 +172,7 @@ handleChangeMagico = (values,n) => {
 
                 <div className="buscar">
 
-                  <form id="formulario" >
-
+                  <form ref="formulario" onSubmit={this.handleSubmit} >
                     <div className="input-group mb-3 col-xs-12">
                           <div className="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-6">
                         <div className="input-group-prepend input_nombre ">
@@ -230,7 +235,7 @@ handleChangeMagico = (values,n) => {
                     <div className="cont_boton input-group mb-3 col-xs-12  text-center">
                         <div className="Botones">
                         <div className="Buton-contenedor">
-                            <button id="Buscar" onClick={this.buscar} onSubmit= {this.handleSubmit} className="btn btn-primary">Buscar </button>
+                            <button id="Buscar" onClick={this.buscar} className="btn btn-primary">Buscar </button>
                             <Link to="/nueva" className="btn btn-primary boton_medio">Agregar</Link>
                             <a className="btn btn-primary" href="https://siga-fisi.herokuapp.com/dashboard" >Regresar</a>
                         </div>
