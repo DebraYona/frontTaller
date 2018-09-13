@@ -22,14 +22,45 @@ class ListarComponentes extends Component {
        this.crearJSON=this.crearJSON.bind(this);
        this.verificar=this.verificar.bind(this);
        this.groupBy = this.groupBy.bind(this);
+       this.wudyfeik=this.wudyfeik.bind(this);
       this.eventoNombre = this.eventoNombre.bind(this);
        this.state={
-           data:null,
+           data:[],
            dataOrdenada: null,
            ubicDato:[],
            JSON:[],
            isLoading:false
        }
+    }
+
+     wudyfeik(listado){
+      let arreglo = [];
+      const lista = listado;
+      if (lista !== null) {
+          lista.map((item,key) => {
+              arreglo = arreglo.concat(new this.Obj(item.id_rec,item.observacion,item.id_ubicacion && item.id_ubicacion,item.validado,item.nombre,
+                  item.concepto,item.codigo,item.recibo,item.importe,item.fecha));
+              return null;
+          });
+          const listadoOrdenado = arreglo.sort(function (a, b) {
+              if (a.nombre > b.nombre) {
+                  return 1;
+              }
+              if (a.nombre < b.nombre) {
+                  return -1;
+              }
+              //iguales
+              return 0;
+          });
+         // console.log(arreglo);
+arreglo =listadoOrdenado
+    }
+    return arreglo
+}
+    componentWillReceiveProps(){
+      this.setState({
+          data: this.wudyfeik(this.props.listado)
+      })
     }
     componentWillMount(){
 
@@ -58,9 +89,9 @@ class ListarComponentes extends Component {
             }/*, function () {
                 console.log("call"+this.state.data)
             }*/);
-            this.setState({
+        /*    this.setState({
                 data: arreglo
-            });
+            });*/
 
           //console.log( listadoOrdenado );
           /*this.setState({
