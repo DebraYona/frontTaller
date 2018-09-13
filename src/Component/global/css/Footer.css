@@ -21,7 +21,7 @@
 
 @media (min-width: 992px) {
  .Footer {
-     position: absolute;
+     position: relative;
     bottom: 0px;
     text-align: center;
     width: 100%;
