@@ -153,12 +153,14 @@ handleChangeMagico = (values,n) => {
         estado:true,
         operacion: (response.data!==null && response.data.length!==0),
         mensaje:(response.data!==null && response.data.length!==0)?(""):("Datos no encontrados"),
-        isLoading      
-:false
+        isLoading:false
       })
+      this.forceUpdate()
+
       console.log(this.state.lista);
     })
     console.log("palilalala");
+
   }
 
 
