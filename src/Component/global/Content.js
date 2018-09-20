@@ -34,6 +34,7 @@ class Content extends Component{
     //    this.handleSearchKey=this.handleSearchKey.bind((this));
         this.mostrarData=this.mostrarData.bind(this);
         this.buscar=this.buscar.bind(this);
+        this.vaciado=this.vaciado.bind(this);
     }
 
     mostrarData(){
@@ -56,6 +57,19 @@ class Content extends Component{
             this.buscar();
         }
     }
+    vaciado(){
+      this.setState({
+        selectedOption:{
+          nombre:"",
+          id_concepto:"",
+          dni:"",
+          codigo:"",
+          voucher:"",
+          periodoI:"",
+          periodoF:""
+        }
+      })
+    }
     /*
     //buscar
   /* handleSearchClick(e) {
@@ -64,7 +78,7 @@ class Content extends Component{
        let url = URL.url.concat('recaudaciones/detallada/');
       // console.log(url);
        if(this.state.selectedOption === ""){
-           this.setState({
+          this.setState({
                mensaje:"Casilleros vacios",
                estado:true,
                operacion:'V',
@@ -114,6 +128,7 @@ class Content extends Component{
       even.preventDefault();
 
       this.refs.formulario.reset()
+      this.vaciado()
     // document.getElementById('formulario').reset()
     console.log("DSAEW");
       //even.preventDefault();
@@ -245,7 +260,7 @@ handleChangeMagico = (values,n) => {
 
                     </div>
                     </div>
-</form>
+                  </form>
 
                     </div>
                 <div className={(this.state.isLoading)?("isLoading"):("listar")}>
