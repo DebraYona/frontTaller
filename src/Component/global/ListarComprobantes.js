@@ -107,7 +107,7 @@ arreglo =listadoOrdenado
                 'Content-Type': 'application/json',
               }
                     })
-        //    .then(res => res.json())
+        //   .then(res => res.json())
             .then(res => {
                 if (res.status) { // exito
                     let dataTipo=res["data"];
@@ -245,7 +245,7 @@ arreglo =listadoOrdenado
             },
             body: JSON.stringify(arreglo)
                     })
-            .then(res => res.json())
+          //  .then(res => res.json())
             .then(res => {
                 if (res.status) { // exito
                     this.setState({
